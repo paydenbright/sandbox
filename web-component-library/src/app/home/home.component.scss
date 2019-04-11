@@ -1,0 +1,6 @@
+@import '~src/app/shared/styles/sizes.scss';
+
+.element {
+  @include font-size(xxl);
+  @include margin(sm, xxl);
+}

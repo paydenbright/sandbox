@@ -1,0 +1,163 @@
+$font-sizes: (
+  none: 0px,
+  xxs: 10px,
+  xs: 12px,
+  sm: 14px,
+  md: 16px,
+  lg: 18px,
+  xl: 20px,
+  xxl: 24px
+);
+
+$sizes: (
+  none: 0px,
+  xxs: 5px,
+  xs: 10px,
+  sm: 15px,
+  md: 20px,
+  lg: 25px,
+  xl: 30px,
+  xxl: 50px
+);
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// FONT SIZE MIXIN:: font-size
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// EXAMPLE :: @include font-size(sm);
+@mixin font-size($key) {
+  @if map-has-key($font-sizes, $key) {
+    font-size: #{map-get($font-sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$font-sizes` map...";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// LINE HEIGHT MIXINS :: line-height, lh-size
+// DESCRIPTION :: Line heights have access to both the $font-sizes and the $sizes map's
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// EXAMPLE :: @include line-height(sm);
+@mixin line-height($key) {
+  @if map-has-key($font-sizes, $key) {
+    line-height: #{map-get($font-sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$font-sizes` map...";
+  }
+}
+
+// EXAMPLE :: @include lh-size(sm);
+@mixin lh-size($key) {
+  @if map-has-key($sizes, $key) {
+    line-height: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// PADDING MIXINS :: padding, padding-top, padding-right, padding-bottom, padding-left
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// DESCRIPTION :: Takes 1 - 4 aurguments.
+// EXAMPLE :: @include padding(sm); @include padding(sm, lg); @include padding(md, sm, lg); etc...
+@mixin padding($key1, $key2: null, $key3: null, $key4: null) {
+  @if map-has-key($sizes, $key1) {
+    padding: #{map-get($sizes, $key1)}
+      #{map-get($sizes, $key2)}
+      #{map-get($sizes, $key3)}
+      #{map-get($sizes, $key4)};
+  } @else {
+    @warn "Unable to find value of `#{$key1}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include padding-top(sm);
+@mixin padding-top($key) {
+  @if map-has-key($sizes, $key) {
+    padding-top: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include padding-right(sm);
+@mixin padding-right($key) {
+  @if map-has-key($sizes, $key) {
+    padding-right: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include padding-bottom(sm);
+@mixin padding-bottom($key) {
+  @if map-has-key($sizes, $key) {
+    padding-bottom: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include padding-left(sm);
+@mixin padding-left($key) {
+  @if map-has-key($sizes, $key) {
+    padding-left: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// MARGIN MIXINS :: margin, margin-top, margin-right, margin-bottom, margin-left
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// DESCRIPTION :: Takes 1 - 4 aurguments.
+// EXAMPLE :: @include margin(sm); @include margin(sm, lg); @include margin(md, sm, lg); etc...
+@mixin margin($key1, $key2: null, $key3: null, $key4: null) {
+  @if map-has-key($sizes, $key1) {
+    margin: #{map-get($sizes, $key1)}
+      #{map-get($sizes, $key2)}
+      #{map-get($sizes, $key3)}
+      #{map-get($sizes, $key4)};
+  } @else {
+    @warn "Unable to find value of `#{$key1}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include margin-top(sm);
+@mixin margin-top($key) {
+  @if map-has-key($sizes, $key) {
+    margin-top: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include margin-right(sm);
+@mixin margin-right($key) {
+  @if map-has-key($sizes, $key) {
+    margin-right: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include margin-bottom(sm);
+@mixin margin-bottom($key) {
+  @if map-has-key($sizes, $key) {
+    margin-bottom: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: @include margin-left(sm);
+@mixin margin-left($key) {
+  @if map-has-key($sizes, $key) {
+    margin-left: #{map-get($sizes, $key)};
+  } @else {
+    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}

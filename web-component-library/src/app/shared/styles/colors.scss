@@ -1,0 +1,63 @@
+$colors: (
+  red: red,
+  orange: orange,
+  yellow: yellow,
+  green: green,
+  blue: blue,
+  purple: purple,
+  pink: pink,
+  brown: brown,
+  gray: gray,
+  black: black,
+  white: white
+);
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// COLOR MIXINS :: color, bg-color, border-color
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// EXAMPLE :: @include color(red);
+@mixin color($key) {
+  @if map-has-key($colors, $key) {
+    color: #{map-get($colors, $key)};
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$key}`. "
+          + "Please make sure it is defined in `$colors` map.";
+  }
+}
+
+// EXAMPLE :: @include bg-color(red);
+@mixin bg-color($key) {
+  @if map-has-key($colors, $key) {
+    background-color: #{map-get($colors, $key)};
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$key}`. "
+          + "Please make sure it is defined in `$colors` map.";
+  }
+}
+
+// EXAMPLE :: @include border-color(red);
+@mixin border-color($key) {
+  @if map-has-key($colors, $key) {
+    border-color: #{map-get($colors, $key)};
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$key}`. "
+            + "Please make sure it is defined in `$colors` map.";
+  }
+}
+
+// DESCRIPTION :: Generate various classes for the whole color map
+// EXAMPLE :: color-red, bg-color-black, border-color-blue, etc...
+@each $key, $value in $colors {
+  .bg-color-#{$key} {
+    background: $value;
+  }
+
+  .color-#{$key} {
+    color: $value;
+  }
+
+  .border-color-#{$key} {
+    border-color: $value;
+  }
+}
