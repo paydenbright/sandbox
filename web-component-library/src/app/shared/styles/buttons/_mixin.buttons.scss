@@ -1,0 +1,16 @@
+@import '~src/app/shared/styles/sizes/default.sizes.scss';
+@import '~src/app/shared/styles/colors/default.colors.scss';
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// CONTENT :: Button Mixins
+// DESCRIPTION :: Generate css for buttons sytles
+// IMPORT :: @import '~src/app/shared/styles/buttons/_mixin.buttons.scss';
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+@mixin primary-button() {
+  color: color(white);
+  background-color: color(blue-dark);
+  width: size(large);
+  height: size(xxl);
+  text-align: center;
+}

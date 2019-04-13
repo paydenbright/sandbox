@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/app/shared/assets"],
-            "styles": ["src/app/shared/styles/styles.scss"],
+            "styles": ["src/app/shared/styles/global.scss"],
             "scripts": [],
             "es5BrowserSupport": true
           },

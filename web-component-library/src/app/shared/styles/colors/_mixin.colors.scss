@@ -1,0 +1,48 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+// CONTENT :: COLOR MIXINS
+// DESCRIPTION :: Generate css colors using the $colors map
+// IMPORT :: @import '~src/app/shared/styles/colors/_mixin.colors.scss';
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// EXAMPLE :: @include color(red);
+@mixin color($key) {
+  @if map-has-key($colors, $key) {
+    color: #{map-get($colors, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$colors` map... ";
+  }
+}
+
+// EXAMPLE :: @include bg-color(red);
+@mixin bg-color($key) {
+  @if map-has-key($colors, $key) {
+    background-color: #{map-get($colors, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$colors` map... ";
+  }
+}
+
+// EXAMPLE :: @include border-color(red);
+@mixin border-color($key) {
+  @if map-has-key($colors, $key) {
+    $key: map-get($types, $key);
+    border-color: #{map-get($colors, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$colors` map... ";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS :: Return a value from their respective maps
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// EXAMPLE :: .my-class { background-color: color(blue); }
+// EXAMPLE :: .my-class { border-color: color(blue); }
+// EXAMPLE :: .my-class { color: color(blue); }
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return #{map-get($colors, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$colors` map... ";
+  }
+}

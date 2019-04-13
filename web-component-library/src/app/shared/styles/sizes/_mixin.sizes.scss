@@ -1,24 +1,8 @@
-$font-sizes: (
-  none: 0px,
-  xxs: 10px,
-  xs: 12px,
-  sm: 14px,
-  md: 16px,
-  lg: 18px,
-  xl: 20px,
-  xxl: 24px
-);
-
-$sizes: (
-  none: 0px,
-  xxs: 5px,
-  xs: 10px,
-  sm: 15px,
-  md: 20px,
-  lg: 25px,
-  xl: 30px,
-  xxl: 50px
-);
+//////////////////////////////////////////////////////////////////////////////////////////////
+// CONTENT :: Font Size, Line Height, Padding, and Margin Mixins
+// DESCRIPTION :: Generate css sizes using the $sizes and $font-sizes maps
+// IMPORT :: @import '~src/app/shared/styles/sizes/_mixin.sizes.scss';
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // FONT SIZE MIXIN:: font-size
@@ -29,7 +13,7 @@ $sizes: (
   @if map-has-key($font-sizes, $key) {
     font-size: #{map-get($font-sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$font-sizes` map...";
+    @error "Unable to find value of `#{$key}` in `$font-sizes` map...";
   }
 }
 
@@ -43,7 +27,7 @@ $sizes: (
   @if map-has-key($font-sizes, $key) {
     line-height: #{map-get($font-sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$font-sizes` map...";
+    @error "Unable to find value of `#{$key}` in `$font-sizes` map...";
   }
 }
 
@@ -52,7 +36,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     line-height: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -69,7 +53,7 @@ $sizes: (
       #{map-get($sizes, $key3)}
       #{map-get($sizes, $key4)};
   } @else {
-    @warn "Unable to find value of `#{$key1}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key1}` in `$sizes` map... ";
   }
 }
 
@@ -78,7 +62,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     padding-top: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -87,7 +71,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     padding-right: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -96,7 +80,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     padding-bottom: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -105,7 +89,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     padding-left: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -122,7 +106,7 @@ $sizes: (
       #{map-get($sizes, $key3)}
       #{map-get($sizes, $key4)};
   } @else {
-    @warn "Unable to find value of `#{$key1}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key1}` in `$sizes` map... ";
   }
 }
 
@@ -131,7 +115,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     margin-top: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -140,7 +124,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     margin-right: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -149,7 +133,7 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     margin-bottom: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
 
@@ -158,6 +142,31 @@ $sizes: (
   @if map-has-key($sizes, $key) {
     margin-left: #{map-get($sizes, $key)};
   } @else {
-    @warn "Unable to find value of `#{$key}` in `$sizes` map... ";
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS :: Return a value from their respective maps
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// EXAMPLE :: .my-class { font-size: font-size(xs); }
+// EXAMPLE :: .my-class { line-height: font-size(small); }
+// EXAMPLE :: .my-class { width: font-size(xxl); }
+@function font-size($key) {
+  @if map-has-key($font-sizes, $key) {
+    @return #{map-get($font-sizes, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
+  }
+}
+
+// EXAMPLE :: .my-class { height: size(xs); }
+// EXAMPLE :: .my-class { font-size: size(md); }
+@function size($key) {
+  @if map-has-key($sizes, $key) {
+    @return #{map-get($sizes, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }

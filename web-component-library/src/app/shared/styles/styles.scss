@@ -1,9 +1,0 @@
-@import '~src/app/shared/styles/colors.scss';
-@import '~src/app/shared/styles/sizes.scss';
-
-.element {
-  color: hotpink;
-  @include font-size(sm);
-  @include padding(sm, xl, xxl);
-  @include color(rainbow);
-}

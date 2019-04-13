@@ -1,0 +1,51 @@
+@import '~src/app/shared/styles/colors/_mixin.colors.scss';
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// CONTENT :: COLOR MAPS
+// DESCRIPTION :: Reusable variable held values
+// NOTE :: Utilize mixins from _mixins file to reference these maps
+// IMPORT :: @import '~src/app/shared/styles/colors/default.colors.scss';
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+$colors: (
+  red: red,
+  red-dark: darkred,
+  orange: orange,
+  orange-dark: darkorange,
+  yellow: yellow,
+  yellow-light: lightyellow,
+  green: green,
+  green-light: lightgreen,
+  green-dark: darkgreen,
+  blue: blue,
+  blue-light: lightblue,
+  blue-dark: darkblue,
+  purple: purple,
+  pink: pink,
+  pink-light: lightpink,
+  brown: brown,
+  gray: gray,
+  gray-light: lightgray,
+  gray-dark: darkgray,
+  black: black,
+  white: white,
+);
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// COLOR CLASS GENERATOR :: color, bg-color, border-color
+// NOTE :: Import this file to get access to these generated classes
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// DESCRIPTION :: Generate various classes for the whole color map
+// EXAMPLE :: color-red, bg-color-black, border-color-blue, etc...
+@each $key, $value in $colors {
+  .bg-color-#{$key} {
+    background-color: $value;
+  }
+  .color-#{$key} {
+    color: $value;
+  }
+  .border-color-#{$key} {
+    border-color: $value;
+  }
+}
