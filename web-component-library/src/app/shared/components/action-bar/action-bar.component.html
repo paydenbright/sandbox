@@ -1,0 +1,11 @@
+<div>
+  <button *ngFor="let btn of actionBarBtns"
+          type="btn"
+          class="{{btn.class}}"
+          (click)="actionBarBtnEvent.emit(btn)">
+
+    <i *ngIf="btn.icon" class="fa {{btn.icon}}"></i>
+
+    <span>{{btn.name}}</span>
+  </button>
+</div>

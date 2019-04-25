@@ -1,13 +1,24 @@
 @import '~src/app/shared/styles/sizes/default.sizes.scss';
 @import '~src/app/shared/styles/colors/default.colors.scss';
-@import '~src/app/shared/styles/buttons/_mixin.buttons.scss';
 
-.element {
-  @include font-size(large);
-  @include margin(sm, xxl);
-  @include padding(large);
+.page-wrapper {
+    box-sizing: border-box;
+    max-width: breakpoint(medium);
+    margin: auto;
+    position: relative;
+    top: 50px;
 }
 
-button {
-  @include primary-button();
+section {
+    @include margin-bottom(md);
+    display: block;
+    min-width: breakpoint(xs);
+}
+
+label {
+    @include margin(none, sm);
+}
+
+select {
+    min-width: 250px;
 }

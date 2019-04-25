@@ -1,0 +1,25 @@
+@import '~src/app/shared/styles/sizes/default.sizes.scss';
+@import '~src/app/shared/styles/colors/default.colors.scss';
+@import '~src/app/shared/styles/buttons/_mixin.buttons.scss';
+
+div {
+    @include margin(md, sm, none);
+    @include padding(xxs);
+    background: linear-gradient(color(white), color(blue-light));
+    border: 1px solid color(blue-light);
+}
+
+button {
+    @include margin-right(xs);
+    @include font-size(xs);
+
+    i {
+        @include font-size(md);
+        @include margin-right(xxs);
+    }
+
+    span {
+        position: relative;
+        top: -1px;
+    }
+}

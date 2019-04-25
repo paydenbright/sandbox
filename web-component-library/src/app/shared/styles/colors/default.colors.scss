@@ -7,28 +7,29 @@
 // IMPORT :: @import '~src/app/shared/styles/colors/default.colors.scss';
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-$colors: (
-  red: red,
-  red-dark: darkred,
-  orange: orange,
-  orange-dark: darkorange,
-  yellow: yellow,
-  yellow-light: lightyellow,
-  green: green,
-  green-light: lightgreen,
-  green-dark: darkgreen,
-  blue: blue,
-  blue-light: lightblue,
-  blue-dark: darkblue,
-  purple: purple,
-  pink: pink,
-  pink-light: lightpink,
-  brown: brown,
-  gray: gray,
-  gray-light: lightgray,
-  gray-dark: darkgray,
-  black: black,
-  white: white,
+$colors: (red: red,
+red-dark: darkred,
+orange: orange,
+orange-dark: darkorange,
+yellow: yellow,
+yellow-light: lightyellow,
+green: green,
+green-light: lightgreen,
+green-dark: darkgreen,
+blue: blue,
+blue-light: #C6D9FE,
+blue-lightest: #D0F1FE,
+blue-dark: darkblue,
+purple: purple,
+pink: pink,
+pink-light: lightpink,
+brown: brown,
+gray: gray,
+gray-light: #e1e1e1,
+gray-lightest: #f8f8fe,
+gray-dark: darkgray,
+black: black,
+white: white,
 );
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,14 +39,17 @@ $colors: (
 
 // DESCRIPTION :: Generate various classes for the whole color map
 // EXAMPLE :: color-red, bg-color-black, border-color-blue, etc...
-@each $key, $value in $colors {
-  .bg-color-#{$key} {
-    background-color: $value;
-  }
-  .color-#{$key} {
-    color: $value;
-  }
-  .border-color-#{$key} {
-    border-color: $value;
-  }
+@each $key,
+$value in $colors {
+    .bg-color-#{$key} {
+        background-color: $value;
+    }
+
+    .color-#{$key} {
+        color: $value;
+    }
+
+    .border-color-#{$key} {
+        border-color: $value;
+    }
 }

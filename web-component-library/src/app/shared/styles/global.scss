@@ -1,6 +1,16 @@
 @import '~src/app/shared/styles/colors/default.colors.scss';
 @import '~src/app/shared/styles/sizes/default.sizes.scss';
+@import '~src/app/shared/styles/buttons/_mixin.buttons.scss';
 
-.element {
-  color: color(yellow);
+body {
+    @include font-size(md);
+}
+
+
+.btn-default {
+    @include btn-default();
+}
+
+.btn-primary {
+    @include btn-primary();
 }

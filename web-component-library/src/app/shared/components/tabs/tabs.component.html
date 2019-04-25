@@ -1,0 +1,9 @@
+<section>
+  <a *ngFor="let tab of tabs"
+     (click)="tabChangeHandler(tab)"
+     [ngClass]="tab.isSelected ? 'active' : 'not-active'">{{ tab.name }}</a>
+</section>
+
+<main>
+  <wcl-tabs-selected-content [tabs]="tabs" [actionBarBtns]="actionBarBtns"></wcl-tabs-selected-content>
+</main>

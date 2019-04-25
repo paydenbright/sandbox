@@ -7,10 +7,22 @@
 // IMPORT :: @import '~src/app/shared/styles/buttons/_mixin.buttons.scss';
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-@mixin primary-button() {
-  color: color(white);
-  background-color: color(blue-dark);
-  width: size(large);
-  height: size(xxl);
-  text-align: center;
+@mixin btn-primary() {
+    color: color(white);
+    background-color: color(blue-dark);
+    width: size(full);
+    height: size(xxl);
+    text-align: center;
+}
+
+@mixin btn-default() {
+    color: color(black);
+    background-color: color(white);
+    padding: size(xxs) size(xs);
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+        background-color: color(blue-light);
+    }
 }

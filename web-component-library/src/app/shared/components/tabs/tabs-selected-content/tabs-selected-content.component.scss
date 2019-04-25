@@ -1,0 +1,27 @@
+@import '~src/app/shared/styles/sizes/default.sizes.scss';
+@import '~src/app/shared/styles/colors/default.colors.scss';
+
+section {
+    @include padding(none, sm);
+}
+
+main {
+    height: 250px;
+    border: 1px solid color(blue-light);
+    border-bottom: none;
+}
+
+main+div {
+    height: size(xxl);
+    border: 1px solid color(blue-light);
+    border-top: 1px solid color(gray-light);
+}
+
+section:last-child>div,
+section div+div {
+    @include margin(md, none);
+}
+
+button {
+    @include margin-right(sm);
+}

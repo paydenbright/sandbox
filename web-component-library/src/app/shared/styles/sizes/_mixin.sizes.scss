@@ -170,3 +170,13 @@
     @error "Unable to find value of `#{$key}` in `$sizes` map... ";
   }
 }
+
+// EXAMPLE :: .my-class { height: size(xs); }
+// EXAMPLE :: .my-class { font-size: size(md); }
+@function breakpoint($key) {
+  @if map-has-key($breakpoints, $key) {
+    @return #{map-get($breakpoints, $key)};
+  } @else {
+    @error "Unable to find value of `#{$key}` in `$breakpoints` map... ";
+  }
+}

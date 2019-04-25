@@ -1,0 +1,42 @@
+@import '~src/app/shared/styles/sizes/default.sizes.scss';
+@import '~src/app/shared/styles/colors/default.colors.scss';
+
+section:first-child {
+    @include margin-left(sm);
+    position: relative;
+    top: 1px;
+    min-width: breakpoint(xs);
+}
+
+a {
+    @include padding(xxs, xs);
+    @include bg-color(gray-lightest);
+    @include margin-right(one);
+    display: inline-block;
+    border: 1px solid color(gray);
+    border-bottom: none;
+    user-select: none;
+
+    &.not-active {
+        @include bg-color(gray-light);
+
+        &:hover {
+            cursor: pointer;
+            @include bg-color(blue-light);
+        }
+    }
+
+    &.active {
+        &:hover {
+            cursor: default;
+        }
+    }
+}
+
+main {
+    @include bg-color(gray-lightest);
+    min-height: breakpoint(sm);
+    width: size(full);
+    border: 1px solid color(gray);
+    min-width: breakpoint(xs);
+}

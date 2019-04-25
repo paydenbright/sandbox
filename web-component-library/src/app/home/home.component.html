@@ -1,7 +1,14 @@
-<p class="element">
-  home works!
-</p>
+<div class="page-wrapper">
+  <section>
+    <label><b>Pay Period:</b></label>
+    <select>
+      <option>Select a week</option>
+      <option *ngFor="let option of options" value="option.value">{{option.value}}</option>
+    </select>
+  </section>
 
-<home-banner>TESTING HTML 5 ELEMENT TAG!!</home-banner>
-
-<button>Test Button</button>
+  <wcl-tabs [tabs]="tabs"
+            (tabChangeEvent)="tabChange($event)"
+            [actionBarBtns]="actionBarBtns">
+  </wcl-tabs>
+</div>

@@ -23,6 +23,7 @@ $font-sizes: (
 
 $sizes: (
   none: 0px,
+  one: 1px,
   xxs: 5px,
   xs: 10px,
   sm: 15px,
@@ -34,4 +35,17 @@ $sizes: (
   medium: 75px,
   large: 100px,
   full: 100%,
+);
+
+$breakpoints: (
+  xxs: 300px,
+  xs: 350px,
+  sm: 400px,
+  md: 450px,
+  lg: 500px,
+  xl: 550px,
+  xxl: 600px,
+  small: 900px,
+  medium: 1200px,
+  large: 1440px,
 );
