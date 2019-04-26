@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HomeService } from './home.service';
+import { TimeSheetService } from './time-sheet.service';
 
-describe('HomeService', () => {
+describe('TimeSheetService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HomeService = TestBed.get(HomeService);
+    const service: TimeSheetService = TestBed.get(TimeSheetService);
     expect(service).toBeTruthy();
   });
 });

@@ -12,6 +12,7 @@ div {
 button {
     @include margin-right(xs);
     @include font-size(xs);
+    min-width: 125px;
 
     i {
         @include font-size(md);
@@ -21,5 +22,15 @@ button {
     span {
         position: relative;
         top: -1px;
+    }
+}
+
+.disabled {
+    @include bg-color(gray-light);
+    @include color(gray-dark);
+
+    &:hover {
+        @include bg-color(gray-light);
+        cursor: default;
     }
 }

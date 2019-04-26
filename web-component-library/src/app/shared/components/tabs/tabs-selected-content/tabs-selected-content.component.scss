@@ -3,10 +3,12 @@
 
 section {
     @include padding(none, sm);
+    height: size(full);
 }
 
 main {
-    height: 250px;
+    min-height: 250px;
+    max-height: breakpoint(lg);
     border: 1px solid color(blue-light);
     border-bottom: none;
 }
@@ -17,11 +19,102 @@ main+div {
     border-top: 1px solid color(gray-light);
 }
 
+h5,h3 {
+    display: inline-block;
+    @include margin(md, md, md, none);
+
+}
+
+
+table {
+    @include margin-bottom(md);
+    @include padding-right(sm);
+    max-height: 425px;
+    width: size(full);
+    overflow: hidden;
+    overflow-y: scroll;
+    display: block;
+}
+
+tbody{
+    width: size(full);
+    @include margin(xs, none);
+    display: block;
+}
+
 section:last-child>div,
 section div+div {
     @include margin(md, none);
+
+    .employee-info {
+        @include margin(none);
+    }
 }
 
 button {
     @include margin-right(sm);
+}
+
+.default-message {
+    height: size(full);
+
+    div {
+        height: size(full);
+        text-align: center;
+    }
+
+    span {
+        @include font-size(lg);
+        @include color(gray);
+        line-height: 250px;
+    }
+}
+
+section:last-child .employee-info {
+    @include margin(none);
+
+    td {
+        min-width: 150px;
+    }
+
+    td:first-child,
+    td:nth-child(2),
+    th:first-child,
+    th:nth-child(2) {
+        min-width: size(lg);
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    input:hover,
+    .fa:hover {
+        cursor: pointer;
+    }
+}
+
+.employee-details tr {
+    display: block;
+    border-top: 1px solid color(gray-light);
+    border-left: 1px solid color(gray-light);
+    border-right: 1px solid color(gray-light);
+
+    &:last-child {
+        border-bottom: 1px solid color(gray);
+    }
+
+    &:nth-child(odd) {
+        @include bg-color(gray-light);
+    }
+}
+
+thead {
+    @include bg-color(blue-light);
+    display: block;
+    th {
+        @include padding(xxs, one);
+        min-width: 150px;
+        text-align: left;
+    }
 }

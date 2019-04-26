@@ -1,0 +1,16 @@
+<div class="page-wrapper">
+  <section>
+    <label><b>Pay Period:</b></label>
+    <select (change)="getTimeSheetData($event.target.value); getEmployeeData()">
+      <option>Select a week</option>
+      <option *ngFor="let option of options" value="{{option.id}}">{{option.value}}</option>
+    </select>
+  </section>
+
+  <wcl-tabs [tabs]="tabs"
+            (tabChangeEvent)="tabChange($event)"
+            [actionBarBtns]="actionBarBtns"
+            [timeSheetData]="timeSheetData"
+            [employeeData]="employeeData">
+  </wcl-tabs>
+</div>

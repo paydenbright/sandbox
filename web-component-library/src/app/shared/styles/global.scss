@@ -14,3 +14,10 @@ body {
 .btn-primary {
     @include btn-primary();
 }
+
+.custom-square {
+    border: 1px solid color(gray);
+    border-radius: 2px;
+    height: size(xs);
+    width: size(xs);
+}

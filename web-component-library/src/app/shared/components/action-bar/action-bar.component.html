@@ -2,10 +2,17 @@
   <button *ngFor="let btn of actionBarBtns"
           type="btn"
           class="{{btn.class}}"
-          (click)="actionBarBtnEvent.emit(btn)">
+          (click)="actionBtnClick(btn)"
+          [ngClass]="employeeData ? '' : 'disabled'"
+          [disabled]="!employeeData">
 
-    <i *ngIf="btn.icon" class="fa {{btn.icon}}"></i>
+    <i *ngIf="btn.icon && !btn.altIcon" class="fa {{btn.icon}}" [ngClass]="employeeData ? '' : 'disabled'"></i>
+    <i *ngIf="btn.altIcon && btn.id === 'abb-id-0'" class="fa" [ngClass]="selectedToggle ?  btn.icon : btn.altIcon "></i>
+    <i *ngIf="btn.altIcon && btn.id === 'abb-id-1'" class="fa" [ngClass]="expandedToggle ? btn.altIcon : btn.icon"></i>
 
-    <span>{{btn.name}}</span>
+    <span *ngIf="!btn.altName">{{btn.name}}</span>
+    <span *ngIf="btn.altName && btn.id === 'abb-id-0'">{{selectedToggle ? btn.altName : btn.name}}</span>
+    <span *ngIf="btn.altName && btn.id === 'abb-id-1'">{{expandedToggle ? btn.altName : btn.name}}</span>
+
   </button>
 </div>

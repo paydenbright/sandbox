@@ -1,8 +1,71 @@
-<wcl-action-bar [actionBarBtns]="actionBarBtns" (actionBarBtnEvent)="actionBarBtnClick($event)"></wcl-action-bar>
+<wcl-action-bar [actionBarBtns]="actionBarBtns"
+                [employeeData]="employeeData"
+                (actionBarBtnEvent)="actionBarBtnClick($event)"></wcl-action-bar>
 
 <section>
     <main>
+        <section *ngIf="timeSheetData && tabs[0].isSelected">
+            <h3>{{timeSheetData.title}}</h3>
+            <h5>{{timeSheetData.dateRange}}</h5>
 
+            <div *ngIf="employeeData" class="employee-info">
+                <table>
+                    <thead>
+                        <th (click)=selectAll()><i class="fa" [ngClass]="selectedToggleAll ? 'fa-check color-green' : 'fa-square color-white'"></i></th>
+                        <th (click)="expandAll()"><i class="fa" [ngClass]="expandedToggleAll ? 'fa-minus color-blue' : 'fa-plus color-green'"></i></th>
+                        <th>Information</th>
+                        <th>Details</th>
+                    </thead>
+                    <tbody class="employee-details" *ngFor="let employee of employeeData">
+                        <tr>
+                            <td (click)="employee.isSelected = !employee.isSelected"><i class="fa" [ngClass]="(selectedToggleAll || employee.isSelected) ? 'fa-check color-green' : 'fa-square color-white'"></i></td>
+                            <td (click)="employee.isExpanded = !employee.isExpanded"><i class="fa" [ngClass]="(expandedToggleAll || employee.isExpanded) ? 'fa-minus color-blue' : 'fa-plus color-green'"></i></td>
+                            <td>Employee</td>
+                            <td>{{employee.fullName}}</td>
+                        </tr>
+                        <tr *ngIf="employee.isExpanded">
+                            <td></td>
+                            <td></td>
+                            <td>Employee Id</td>
+                            <td>{{employee.employeeId}}</td>
+                        </tr>
+                        <tr *ngIf="employee.isExpanded">
+                            <td></td>
+                            <td></td>
+                            <td>Phone</td>
+                            <td>{{employee.phone}}</td>
+                        </tr>
+                        <tr *ngIf="employee.isExpanded">
+                            <td></td>
+                            <td></td>
+                            <td>Email</td>
+                            <td>{{employee.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+        <section *ngIf="timeSheetData && tabs[1].isSelected" class="default-message">
+            <div>
+                <span>Overtime/Comp Time section is under construction.</span>
+            </div>
+
+        </section>
+
+        <section *ngIf="timeSheetData && tabs[2].isSelected" class="default-message">
+            <div>
+                <span>Personnel section is under construction.</span>
+            </div>
+        </section>
+
+        <section *ngIf="!timeSheetData" class="default-message">
+            <div>
+                <span>No data to display</span>
+            </div>
+        </section>
     </main>
 
     <div>
