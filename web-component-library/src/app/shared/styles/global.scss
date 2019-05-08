@@ -1,6 +1,44 @@
-@import '~src/app/shared/styles/colors/default.colors.scss';
-@import '~src/app/shared/styles/sizes/default.sizes.scss';
+@import "~src/app/shared/styles/colors/default.colors.scss";
+@import "~src/app/shared/styles/sizes/default.sizes.scss";
 
-.element {
-  color: color(yellow);
+.top-tooltip,
+.bottom-tooltip {
+  @include bg-color(black);
+  @include color(white);
+  @include margin-top(xxs);
+  @include padding(xxs, xs);
+  border-radius: size(xxs);
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  display: table;
+  max-width: calc(100vw / 2);
+}
+
+// down arrow
+.top-tooltip::after {
+  content: "";
+  top: size(full);
+  left: size(md);
+  border-width: size(xxs);
+  position: absolute;
+  margin-left: -5px;
+  border-style: solid;
+  border-color: color(black) transparent transparent transparent;
+}
+
+// up arrow
+.bottom-tooltip::after {
+  content: "";
+  bottom: 100%;
+  left: 20px;
+  border-width: size(xxs);
+  position: absolute;
+  margin-left: -5px;
+  border-style: solid;
+  border-color: transparent transparent color(black) transparent;
+}
+
+.display-none {
+  display: none;
 }
