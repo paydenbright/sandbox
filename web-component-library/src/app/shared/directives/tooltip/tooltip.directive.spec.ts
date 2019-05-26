@@ -1,11 +1,33 @@
 import { TooltipDirective } from './tooltip.directive';
-import { ElementRef } from '@angular/core';
+import { ElementRef, Component, DebugElement } from '@angular/core';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+
+@Component({
+  template: `<div type="text" TooltipDirective></div>`
+})
+class MockToolTipComponent {
+}
 
 describe('TooltipDirective', () => {
-  let element: ElementRef;
+  let component: MockToolTipComponent;
+  let fixture: ComponentFixture<MockToolTipComponent>;
+  let element: DebugElement;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [MockToolTipComponent, TooltipDirective]
+    })
+      .compileComponents();
+
+    fixture = TestBed.createComponent(MockToolTipComponent);
+    component = fixture.componentInstance;
+    element = fixture.debugElement.query(By.css('div'));
+    fixture.detectChanges();
+  });
 
   it('should create an instance', () => {
-    const directive = new TooltipDirective(element);
-    expect(directive).toBeTruthy();
+    expect(component).toBeTruthy();
+    expect(element).toBeTruthy();
   });
 });
