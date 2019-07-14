@@ -1,0 +1,15 @@
+.wcl-loading-btn {
+  animation: spin 500ms linear infinite;
+  display: inline-block;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}

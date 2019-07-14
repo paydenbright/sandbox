@@ -35,3 +35,42 @@ $sizes: (
   large: 100px,
   full: 100%
 );
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// SIZE CLASS GENERATOR :: padding, margin, height, width
+// NOTE :: Import this file to get access to these generated classes
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// DESCRIPTION :: Generate various classes for the whole sizes map
+// EXAMPLE :: margin-xxl, padding-none, height-full, etc...
+@each $key, $value in $sizes {
+  .margin-#{$key} {
+    margin: $value;
+  }
+  .padding-#{$key} {
+    padding: $value;
+  }
+  .width-#{$key} {
+    width: $value;
+  }
+  .height-#{$key} {
+    height: $value;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// FONT SIZE CLASS GENERATOR :: font sizes and line heights
+// NOTE :: Import this file to get access to these generated classes
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// DESCRIPTION :: Generate various classes for the whole font-sizes map
+// EXAMPLE :: margin-xxl, padding-none, height-full, etc...
+@each $key, $value in $font-sizes {
+  .font-size-#{$key} {
+    font-size: $value;
+  }
+
+  .line-height-#{$key} {
+    line-height: $value;
+  }
+}

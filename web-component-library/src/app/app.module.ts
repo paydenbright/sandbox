@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { TooltipDirective } from './shared/directives/tooltip/tooltip.directive';
+import { LoadingBtnComponent } from './shared/components/loading-btn/loading-btn.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavBarComponent, TooltipDirective],
+  declarations: [AppComponent, HomeComponent, NavBarComponent, TooltipDirective, LoadingBtnComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
