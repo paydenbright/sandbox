@@ -1,10 +1,10 @@
-@import "~src/app/shared/styles/sizes/_mixin.sizes.scss";
+@import "src/app/shared/styles/sizes/_mixin.sizes.scss";
 
 ////////////////////////////////////////////////////////////////////////
 // CONTENT :: Font size and Size maps
 // DESCIRPTION :: Reusable variable held values
 // NOTE :: Utilize mixins from _mixins file to reference these maps
-// IMPORT :: @import '~src/app/shared/styles/sizes/default-sizes';
+// IMPORT :: @import 'src//app/shared/styles/sizes/default-sizes';
 ////////////////////////////////////////////////////////////////////////
 
 $font-sizes: (

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 // CONTENT :: Font Size, Line Height, Padding, and Margin Mixins
 // DESCRIPTION :: Generate css sizes using the $sizes and $font-sizes maps
-// IMPORT :: @import '~src/app/shared/styles/sizes/_mixin.sizes.scss';
+// IMPORT :: @import 'src//app/shared/styles/sizes/_mixin.sizes.scss';
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,10 +48,7 @@
 // EXAMPLE :: @include padding(sm); @include padding(sm, lg); @include padding(md, sm, lg); etc...
 @mixin padding($key1, $key2: null, $key3: null, $key4: null) {
   @if map-has-key($sizes, $key1) {
-    padding: #{map-get($sizes, $key1)}
-      #{map-get($sizes, $key2)}
-      #{map-get($sizes, $key3)}
-      #{map-get($sizes, $key4)};
+    padding: #{map-get($sizes, $key1)} #{map-get($sizes, $key2)} #{map-get($sizes, $key3)} #{map-get($sizes, $key4)};
   } @else {
     @error "Unable to find value of `#{$key1}` in `$sizes` map... ";
   }
@@ -101,10 +98,7 @@
 // EXAMPLE :: @include margin(sm); @include margin(sm, lg); @include margin(md, sm, lg); etc...
 @mixin margin($key1, $key2: null, $key3: null, $key4: null) {
   @if map-has-key($sizes, $key1) {
-    margin: #{map-get($sizes, $key1)}
-      #{map-get($sizes, $key2)}
-      #{map-get($sizes, $key3)}
-      #{map-get($sizes, $key4)};
+    margin: #{map-get($sizes, $key1)} #{map-get($sizes, $key2)} #{map-get($sizes, $key3)} #{map-get($sizes, $key4)};
   } @else {
     @error "Unable to find value of `#{$key1}` in `$sizes` map... ";
   }

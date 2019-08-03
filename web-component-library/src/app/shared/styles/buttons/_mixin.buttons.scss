@@ -1,10 +1,10 @@
-@import '~src/app/shared/styles/sizes/default.sizes.scss';
-@import '~src/app/shared/styles/colors/default.colors.scss';
+@import "src//app/shared/styles/sizes/default.sizes.scss";
+@import "src//app/shared/styles/colors/default.colors.scss";
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // CONTENT :: Button Mixins
 // DESCRIPTION :: Generate css for buttons sytles
-// IMPORT :: @import '~src/app/shared/styles/buttons/_mixin.buttons.scss';
+// IMPORT :: @import 'src//app/shared/styles/buttons/_mixin.buttons.scss';
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 @mixin primary-button() {

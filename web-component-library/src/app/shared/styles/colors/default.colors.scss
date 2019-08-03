@@ -1,10 +1,10 @@
-@import '~src/app/shared/styles/colors/_mixin.colors.scss';
+@import "src//app/shared/styles/colors/_mixin.colors.scss";
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // CONTENT :: COLOR MAPS
 // DESCRIPTION :: Reusable variable held values
 // NOTE :: Utilize mixins from _mixins file to reference these maps
-// IMPORT :: @import '~src/app/shared/styles/colors/default.colors.scss';
+// IMPORT :: @import 'src//app/shared/styles/colors/default.colors.scss';
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 $colors: (
@@ -28,7 +28,7 @@ $colors: (
   gray-light: lightgray,
   gray-dark: darkgray,
   black: black,
-  white: white,
+  white: white
 );
 
 //////////////////////////////////////////////////////////////////////////////////////////////
